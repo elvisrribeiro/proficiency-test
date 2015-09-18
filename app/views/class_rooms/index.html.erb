@@ -1,0 +1,25 @@
+<legend>Listing Registrations</legend>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Course</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @classRooms.each do |classRoom| %>
+  <tr>
+    <td><%= classRoom.student.name %></td>
+    <td><%= classRoom.course.name %></td>
+    <td><%= classRoom.created_at %></td>
+    <td><%= link_to 'Delete', {:action => 'delete', :id => classRoom.id}, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to 'New Registration', :action => 'new' %>

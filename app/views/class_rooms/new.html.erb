@@ -1,0 +1,34 @@
+<% if @classRoom.errors.any? %>
+  <div style="color:red">
+    <ul>
+    <% @classRoom.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @classRoom, url: {action: "create"} do |classRoom_form| %>
+  <fieldset>
+    <legend>New Registration</legend>
+      <div class="control-group">
+      	Student
+      	<div class="controls">
+      	  <%= classRoom_form.collection_select :student_id, @students, :id, :name %> 
+      	</div>
+      </div>
+      
+      <div class="control-group">
+	 Course
+        <div class="controls">
+           <%= classRoom_form.collection_select :course_id, @courses, :id, :name %> 
+         </div>
+      </div
+      
+      <div class="form-actions">
+      	</br>
+	<%= classRoom_form.submit "Create" %>
+	<%= link_to 'Back', :action => nil, :class => 'btn' %>
+      </div>    
+  </fieldset>
+<% end %>

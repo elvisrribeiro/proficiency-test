@@ -1,0 +1,40 @@
+<% if @student.errors.any? %>
+  <div style="color:red">
+    <ul>
+    <% @student.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @student, url: {action: "create"} do |student_form| %>
+<fieldset>
+    <legend>New student</legend>
+
+    <div class="control-group">
+      Name
+      <div class="controls">
+        <%= student_form.text_field :name %> 
+      </div>
+    </div>
+    
+    <div class="control-group">
+      Register Number
+      <div class="controls">
+      	<%= student_form.text_field :register_number %> 
+      </div>
+    </div>
+    <div class="control-group">
+      Status
+      <div class="controls">
+      	<%= student_form.check_box :status %>
+      </div>
+    </div>
+    <div class="form-actions">
+          <%= student_form.submit "Create" %>
+          <%= link_to 'Back', :action => nil, :class => 'btn' %>
+    </div>
+</fieldset>
+  
+<% end %>

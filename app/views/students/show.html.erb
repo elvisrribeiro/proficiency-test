@@ -1,0 +1,26 @@
+<fieldset>
+      <legend>Edit student: <%=h @student.name %></legend>
+
+<div class="control-group">
+    <b>Name:</b>
+    <div class="controls">
+<%=h @student.name %>
+    </div>
+</div>
+<div class="control-group">
+    <b>Register Number:</b>
+    <div class="controls">
+<%=h @student.register_number %>
+</div>
+</div>
+<div class="control-group">
+    <b>Created:</b>
+    <div class="controls">
+    	<%= time_ago_in_words(@student.created_at) %> ago
+    </div>
+</div>
+
+</fieldset>
+
+<%= link_to 'Edit', :action => 'edit', :id => @student.id %> |
+<%= link_to 'Back', :action => nil %>

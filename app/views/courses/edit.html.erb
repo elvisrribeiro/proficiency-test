@@ -1,0 +1,38 @@
+<% if @course.errors.any? %>
+  <div style="color:red">
+    <ul>
+    <% @course.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @course, url: {action: "update", :id => @course.id}, :method => :POST do |course_form| %>
+  <fieldset>
+        <legend>Edit course</legend>
+          <div class="control-group">
+            Name
+            <div class="controls">
+  	    <%= course_form.text_field :name %> 
+    	  </div>
+           </div>
+           
+           <div class="control-group">
+            Description
+	    <div class="controls">
+	      <%= course_form.text_field :description %>
+	    </div>
+           </div>
+           <div class="control-group">
+            Status
+	    <div class="controls">
+	      <%= course_form.check_box :status %>
+	    </div>
+           </div>
+           <div class="form-actions">
+   		<%= course_form.submit "Save" %>
+		<%= link_to 'Back', :action => nil, :class => 'btn' %>
+        </div>    
+  </fieldset>
+<% end %>

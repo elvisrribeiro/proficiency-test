@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proficiency Test</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+      <%= link_to 'Proficiency Test', :controller => 'welcome', :action => 'index' %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <%= link_to 'Student', :controller => 'students', :action => 'index' %>
+        </ul>
+        <ul class="nav">
+          <%= link_to 'Course', :controller => 'courses', :action => 'index' %>
+        </ul>
+        <ul class="nav">
+          <%= link_to 'Registration', :controller => 'class_rooms', :action => 'index' %>
+        </ul>
+        </ul>
+      </div>
+</div>
+<div class="container">
+  <%= yield %>
+</div>
+</body>
+</html>

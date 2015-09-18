@@ -1,0 +1,24 @@
+<legend>Listing students</legend>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.name %></td>
+    <td><%= student.status %></td>
+    <td><%= student.created_at %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => student.id %>&nbsp;&nbsp;<%= link_to 'Delete', {:action => 'delete', :id => student.id}, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<%= link_to 'New student', :action => 'new' %>
